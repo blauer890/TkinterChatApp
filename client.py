@@ -1,6 +1,7 @@
 import tkinter as tk
 import socket
 import threading
+import sys
 
 class GUI:
     def __init__(self, host, port):
@@ -50,4 +51,8 @@ class GUI:
                 break
 
 if __name__ == '__main__':
-    gui = GUI('localhost',8000)
+    if len(sys.argv) > 1:
+        port = sys.argv[1]
+    else:
+        port = 8000
+    gui = GUI('localhost',port)
